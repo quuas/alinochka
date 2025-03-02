@@ -72,7 +72,7 @@ function createParticle() {
     particle.classList.add("particle");
     document.body.appendChild(particle);
 
-    let size = Math.random() * 20 + 10; // Размер от 10 до 30 пикселей
+    let size = Math.random() * 20 + 10;
     particle.style.width = size + "px";
     particle.style.height = size + "px";
     particle.style.left = Math.random() * window.innerWidth + "px";
@@ -81,7 +81,7 @@ function createParticle() {
     setTimeout(() => {
         particle.remove();
         createParticle();
-    }, 10000); // Удаляем частицы через 10 сек и создаем новые
+    }, 10000);
 }
 </script>
 
@@ -91,7 +91,7 @@ function createParticle() {
         top: -10px;
         width: 20px;
         height: 20px;
-        background-image: url('heart.png'); /* Добавь картинку сердца или лепестка */
+        background-image: url('heart.png');
         background-size: cover;
         animation: fall linear infinite;
     }
