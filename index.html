@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Самая красивая девушка Ростова-на-Дону</title>
     <link rel="stylesheet" href="styles.css">
+<style>
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    header h1, nav ul {
+        animation: fadeIn 1s ease-in-out;
+    }
+</style>
 </head>
 <body>
     <header>
@@ -36,6 +46,8 @@
     </section>
 
     <section id="contact" class="section">
+	<p id="secretMessage" style="display: none; font-size: 20px; color: #ff4081;">Ты моя самая любимая и прекрасная!</p>
+	<button onclick="document.getElementById('secretMessage').style.display='block'" style="background: #ff4081; color: white; 	padding: 10px; border: none; border-radius: 10px;">Секретное послание</button>
     	<h2>Контакты</h2>
     	<p>Связаться со мной можно:</p>
     	<p>✉️ Почта: <a href="mailto:hav04@mail.ru">Комплименты писать сюда</a></p>
@@ -46,5 +58,55 @@
     <footer>
         <p>&copy; 2025 Все права защищены</p>
     </footer>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    for (let i = 0; i < 15; i++) {
+        createParticle();
+    }
+});
+
+function createParticle() {
+    let particle = document.createElement("div");
+    particle.classList.add("particle");
+    document.body.appendChild(particle);
+
+    let size = Math.random() * 20 + 10; // Размер от 10 до 30 пикселей
+    particle.style.width = size + "px";
+    particle.style.height = size + "px";
+    particle.style.left = Math.random() * window.innerWidth + "px";
+    particle.style.animationDuration = 5 + Math.random() * 5 + "s";
+
+    setTimeout(() => {
+        particle.remove();
+        createParticle();
+    }, 10000); // Удаляем частицы через 10 сек и создаем новые
+}
+</script>
+
+<style>
+    .particle {
+        position: fixed;
+        top: -10px;
+        width: 20px;
+        height: 20px;
+        background-image: url('heart.png'); /* Добавь картинку сердца или лепестка */
+        background-size: cover;
+        animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+        to { transform: translateY(100vh); opacity: 0; }
+    }
+</style>
+<script>
+    function showRandomPhoto() {
+        let images = document.querySelectorAll('.gallery-container img');
+        let randomIndex = Math.floor(Math.random() * images.length);
+        alert("Случайное фото: " + images[randomIndex].alt);
+        images[randomIndex].scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+<button onclick="showRandomPhoto()" style="position: fixed; bottom: 20px; right: 20px; background: #ff4081; color: white; padding: 10px 20px; border: none; border-radius: 10px; cursor: pointer;">Случайное фото</button>
+
 </body>
 </html>
