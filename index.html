@@ -52,7 +52,7 @@
     </section>
 
     <section id="contact" class="section">
-	<p id="secretMessage" style="display: none; font-size: 20px; color: #ff4081;">А теперь закрывай глаза❤️</p>
+	<p id="secretMessage" style="display: none; font-size: 20px; color: #ff4081;">Ты – причина, по которой этот сайт существует, но главное – ты причина, по которой мое сердце бьётся быстрее. А теперь закрывай глаза❤️</p>
 	<button onclick="document.getElementById('secretMessage').style.display='block'" style="background: #ff4081; color: white; 	padding: 10px; border: none; border-radius: 10px;">Секретное послание</button>
     	<h2>Контакты</h2>
     	<p>Связаться со мной можно:</p>
@@ -76,7 +76,7 @@ function createParticle() {
     particle.classList.add("particle");
     document.body.appendChild(particle);
 
-    let size = Math.random() * 20 + 10; // Размер от 10 до 30 пикселей
+    let size = Math.random() * 20 + 10;
     particle.style.width = size + "px";
     particle.style.height = size + "px";
     particle.style.left = Math.random() * window.innerWidth + "px";
@@ -85,7 +85,7 @@ function createParticle() {
     setTimeout(() => {
         particle.remove();
         createParticle();
-    }, 10000); // Удаляем частицы через 10 сек и создаем новые
+    }, 10000);
 }
 </script>
 
@@ -95,7 +95,7 @@ function createParticle() {
         top: -10px;
         width: 20px;
         height: 20px;
-        background-image: url('heart.png'); /* Добавь картинку сердца или лепестка */
+        background-image: url('heart.png');
         background-size: cover;
         animation: fall linear infinite;
     }
@@ -113,6 +113,32 @@ function createParticle() {
     }
 </script>
 <button onclick="showRandomPhoto()" style="position: fixed; bottom: 20px; right: 20px; background: #ff4081; color: white; padding: 10px 20px; border: none; border-radius: 10px; cursor: pointer;">Случайное фото</button>
+
+<audio id="bg-music" loop>
+    <source src="background.mp3" type="audio/mpeg">
+    Ваш браузер не поддерживает аудиоэлемент.
+</audio>
+
+<button onclick="toggleMusic()" id="music-btn" style="position: fixed; bottom: 60px; right: 20px; background: #ff4081; color: white; padding: 10px 20px; border: none; border-radius: 10px; cursor: pointer;">
+    🎵 Включить музыку
+</button>
+
+<script>
+    let music = document.getElementById("bg-music");
+    let musicBtn = document.getElementById("music-btn");
+    let isPlaying = false;
+
+    function toggleMusic() {
+        if (isPlaying) {
+            music.pause();
+            musicBtn.textContent = "🎵 Включить музыку";
+        } else {
+            music.play();
+            musicBtn.textContent = "🔇 Выключить музыку";
+        }
+        isPlaying = !isPlaying;
+    }
+</script>
 
 </body>
 </html>
